@@ -1,0 +1,21 @@
+.code .js-code {
+    color: #333;
+    /* Couleur par défaut */
+    font-size: 0.95rem;
+
+    span.keyword {
+        color: #d73a49;
+        /* Couleur pour les mots-clés */
+        font-weight: bold;
+    }
+
+    span.string {
+        color: #032f62;
+        /* Couleur pour les chaînes */
+    }
+
+    span.function {
+        color: #005cc5;
+        /* Couleur pour les noms de fonction */
+    }
+}

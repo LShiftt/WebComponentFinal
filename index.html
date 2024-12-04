@@ -1,11 +1,113 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trucs cool CSS</title>
+    <title>CSS nesting</title>
+    <link rel="stylesheet" href="./media/css/styles.css">
+    <link rel="stylesheet" href="./media/css/codecss.css">
+    <link rel="stylesheet" href="./media/css/codejs.css">
+    <link rel="stylesheet" href="./media/css/codescss.css">
 </head>
+
 <body>
-    <h1>Trucs cool CSS</h1>
+    <main>
+        <h1>CSS nesting</h1>
+        <nav>
+            <a href="#partie1"> Partie 1</a>
+        </nav>
+        <section>
+            <h2 id="partie1">Késako ? 📌</h2>
+            <div>
+                <h3>Qui c'est qui a copié ?</h3>
+                <p>Pour bien comprendre cette fonctionnalitée, il est nécéssaire de retourner à la fondation du CSS 3 .
+                </p>
+                <!-- CSS -->
+                <div class="code">
+                    <h4>CSS</h4>
+                    <pre><code class="css-code">
+                div {
+                    display: block;
+                }
+                h1 {
+                    font-size: larger;
+                }
+                    </code></pre>
+                </div>
+                <!-- JS -->
+                <div class="code">
+                    <div class="code">
+                        <h4>JavaScript</h4>
+                        <pre><code class="js-code">
+                function salut(nom) {
+                    console.log(`Salut, ${nom}!`);
+                    return true;
+                }
+                    </code></pre>
+                    </div>
+                </div>
+                <!-- SCSS -->
+                <div class="code">
+                    <h4>SCSS</h4>
+                    <pre><code class="scss-code">
+                        $font-stack: Helvetica, sans-serif;
+                        $primary-color: #333;
+                        
+                        body {
+                          font: 100% $font-stack;
+                          color: $primary-color;
+                        }
+                    </code></pre>
+                </div>
+
+            </div>
+        </section>
+
+
+    </main>
+    <article>
+    </article>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const codeElement = document.querySelector('.css-code');
+            const cssContent = codeElement.textContent;
+            const highlightedCode = cssContent
+                .replace(/([a-z-]+)(\s*:\s*)/gi, '<span class="property">$1</span>$2') // Propriétés
+                .replace(/(:\s*)([^;]+)(;?)/g, '$1<span class="value">$2</span>$3'); // Valeurs
+
+            codeElement.innerHTML = highlightedCode;
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const jsElement = document.querySelector('.js-code');
+            const jsContent = jsElement.textContent;
+
+            // Ajout de couleurs aux mots-clés, fonctions et chaînes
+            const highlightedJs = jsContent
+                .replace(/\b(function|return|console|log)\b/g, '<span class="keyword">$1</span>') // Mots-clés
+                .replace(/`([^`]+)`/g, '<span class="string">`$1`</span>') // Chaînes de caractères
+                .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()/g, '<span class="function">$1</span>'); // Noms de fonctions
+
+            jsElement.innerHTML = highlightedJs;
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const scssElement = document.querySelector('.scss-code');
+            const scssContent = scssElement.textContent;
+
+            // Ajout de couleurs pour SCSS : variables, mixins, appels, propriétés, et valeurs
+            const highlightedScss = scssContent
+                .replace(/\$[a-zA-Z0-9-_]+/g, '<span class="variable">$&</span>') // Variables
+                .replace(/@mixin\s+([a-zA-Z0-9-_]+)/g, '@mixin <span class="mixin">$1</span>') // Mixins
+                .replace(/@include\s+([a-zA-Z0-9-_]+)/g, '@include <span class="include">$1</span>') // Appels de mixins
+                .replace(/([a-zA-Z-]+)(\s*:\s*)/g, '<span class="property">$1</span>$2') // Propriétés CSS
+                .replace(/(:\s*)([^;]+)(;?)/g, '$1<span class="value">$2</span>$3'); // Valeurs CSS
+
+            scssElement.innerHTML = highlightedScss;
+        });
+
+
+
+    </script>
 </body>
+
 </html>

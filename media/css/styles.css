@@ -1,0 +1,86 @@
+/* CSS nesting */
+* {
+    /* Variables */
+    /* All */
+    /* Black */
+    --color-main: oklch(0 0 0);
+    /* Light Gray */
+    --color-seco: oklch(0.7062 0.0271 252.53);
+    /* Secondary Color */
+    --color-selected: var(--color-seco);
+    /* Font Segoe */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+    /* Code  */
+    /* BackGround orange */
+    --code-color-bg: oklch(0.7558 0.1153 41.66);
+    /* Font Courrier */
+    --code-font: 'Courier New', Courier, monospace;
+
+    box-sizing: border-box;
+    font-family: var(--font-main);
+
+    /* Selection originale */
+    *::selection {
+        background: var(--color-selected);
+        color: var(--color-main);
+        box-decoration-break: clone;
+    }
+}
+
+main {
+    h1 {
+        font-size: calc(40px + 2vw);
+        text-align: center;
+    }
+
+    h2 {
+        font-size: calc(32px + 2vw);
+    }
+
+    h3 {
+        font-size: calc(24px + 2vw);
+    }
+
+    h4 {
+        font-size: calc(16px + 2vw);
+    }
+
+    h5 {
+        font-size: calc(8px + 2vw);
+    }
+
+    p {
+        font-size: calc(8px + 2vw);
+        text-indent: 10vw;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.code {
+    font-family: var(--code-font);
+    background-color: #f4f4f4;
+    /* Fond similaire aux éditeurs */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+
+    h4 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    pre {
+        margin: 10px 0 0;
+        overflow-x: auto;
+        /* Gestion du débordement horizontal */
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-radius: 5px;
+    }
+}

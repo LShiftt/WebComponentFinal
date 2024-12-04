@@ -1,0 +1,15 @@
+.code .css-code {
+    color: #0070f3;
+    /* Couleur pour les sélecteurs */
+    font-size: 0.95rem;
+
+    span.property {
+        color: #d73a49;
+        /* Couleur pour les propriétés CSS */
+    }
+
+    span.value {
+        color: #22863a;
+        /* Couleur pour les valeurs CSS */
+    }
+}
