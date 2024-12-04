@@ -10,15 +10,6 @@ README.md à faire, il faut qui soit classe
 
 
 CSS nesting - similaire au sass - super simple et cool (ya pas de calcul)
-oklch() - palette de couleurs - à utiliser au lieu de RGBA (Couleurs uniques)
-si selectionner, il faut que le bg soit gris clair et le texte soit de la couleur primaire =>
-.highlight-text::selection {
-   background : #D3D3D3 ;
-   color : black;
- }
-box decoration break
-
-The commit type can include the following:
 
 feat – a new feature is introduced with the changes
 fix – a bug fix has occurred
@@ -31,3 +22,6 @@ perf – performance improvements
 ci – continuous integration related
 build – changes that affect the build system or external dependencies
 revert – reverts a previous commit
+
+
+TODO : Installer Phone view
