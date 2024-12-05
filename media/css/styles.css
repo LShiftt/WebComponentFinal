@@ -28,6 +28,10 @@
         box-decoration-break: clone;
     }
 }
+a{
+    text-decoration: none;
+    color: var(--color-main);
+}
 
 main {
     h1 {
@@ -64,7 +68,6 @@ main {
 .code {
     font-family: var(--code-font);
     background-color: #f4f4f4;
-    /* Fond similaire aux éditeurs */
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 5px;
@@ -78,7 +81,6 @@ main {
     pre {
         margin: 10px 0 0;
         overflow-x: auto;
-        /* Gestion du débordement horizontal */
         background-color: #f9f9f9;
         padding: 10px;
         border-radius: 5px;

@@ -24,4 +24,5 @@ build – changes that affect the build system or external dependencies
 revert – reverts a previous commit
 
 
-TODO : Installer Phone view
+Idée : un boutton qui fait utilise un code css normale vers un code css nest
+TODO: faire l'Idée ou en trouver une autre

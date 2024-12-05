@@ -1,27 +1,26 @@
-/* Styles communs pour le bloc de code */
-.code .scss-code {
+.scss-code {
     color: #333; /* Couleur par défaut */
     font-size: 0.95rem;
 }
 
 /* Style spécifique pour SCSS */
-.code .scss-code span.variable {
+.variable {
     color: #d73a49; /* Couleur pour les variables */
 }
 
-.code .scss-code span.mixin {
+.mixin {
     color: #6f42c1; /* Couleur pour les mixins */
     font-style: italic;
 }
 
-.code .scss-code span.include {
+.include {
     color: #005cc5; /* Couleur pour les appels de mixins */
 }
 
-.code .scss-code span.property {
+.property {
     color: #22863a; /* Couleur pour les propriétés CSS */
 }
 
-.code .scss-code span.value {
+.value {
     color: #032f62; /* Couleur pour les valeurs CSS */
 }
