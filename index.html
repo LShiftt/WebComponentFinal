@@ -12,18 +12,19 @@
 
   <body>
     <script src="./media/js/Web Component/CodeSample.js"></script>
+    <script src="./media/js/Web Component/CodeExec.js"></script>
     <main>
-      <h1>CSS nesting</h1>
+      <h1>CSS Nest</h1>
       <nav>
         <a href="#partie1"> Partie 1</a>
       </nav>
       <section>
         <a href="#partie1"><h2 id="partie1">Késako ? 📌</h2></a>
         <div>
-          <h3>Qui s'est qui a copié ?</h3>
+          <h3>Qui c'est qui a copié ?</h3>
           <p>
-            Pour bien comprendre cette fonctionnalitée, il est nécéssaire de
-            retourner à la fondation du CSS 3 .
+            Pour bien comprendre le CSS Nest, il est nécéssaire de retourner à
+            la fondation du CSS 3 .
           </p>
           <code-sample
             lang="CSS"
@@ -31,11 +32,114 @@
             div{
                 display: block;
             }
-            h1{
-                font-size: larger;
+            div h1{
+                font-size: 30px;
             }"
           ></code-sample>
-
+          <p>
+            Par exemple le code ci-dessus permet de générer un titre de 30px
+            s'il est dans une div, c'est sympa mais que se passerai-t-il si on
+            avait 5 éléments différents dans cette même div :
+          </p>
+          <code-sample
+            lang="CSS"
+            content="
+          div {
+            display: block;
+          }
+          div h1 {
+            font-size: 30px;
+          }
+          div h2 {
+            font-size: 27px;
+          }
+          div h3 {
+            font-size: 24px;
+          }
+          div h4 {
+            font-size: 21px;
+          }
+          div div {
+            display: flex;
+          }"
+          ></code-sample>
+          <p>
+            La répétition de div est redondante, c'est pourquoi SCSS à été
+            créer, il s'agit d'une des deux syntaxes du preprocessor SASS
+            (Syntactically Awesome Style Sheets). Ce "language" à la
+            particularitée de simulé un "nest" ("nid" en anglais ) pour chacun
+            des éléments que l'on souhaite styliser.
+          </p>
+          <code-sample
+            lang="SCSS"
+            content="
+          div {
+              display: block;
+              h1 {
+                  font-size: 30px;
+              }
+              h2 {
+                  font-size: 27px;
+              }
+              h3 {
+                  font-size: 24px;
+              }
+              h4 {
+                  font-size: 21px;
+              }
+              div {
+                  display: flex;
+              }
+          }
+          "
+          ></code-sample>
+          <p>
+            Similaire certes, mais bien plus simple : Parce que la div engloble
+            les différents éléments, ceux-ci ne seront affecté par ce code css
+            que si la même condition s'applique
+          </p>
+          <p>
+            Il y a encore mieu, le SCSS possède des variables (qui ne peuvent
+            pas être modifié dynamiquement) permettant de conserver une même
+            couleur sans avoir à retenir son code héxadécimal ou rgba :
+          </p>
+          <code-sample
+            lang="SCSS"
+            content="
+            $base-color: #c6538c;
+            $second-color: rgba(31, 126, 126, 0.774);
+          
+            p {
+                color : $base-color;
+                border: 3px solid $second-dark;
+                text-align: center;
+          }
+          "
+          ></code-sample>
+          <!-- ici le nouveau component qui utilise code-sample et l'éxécute en SCSS (attention super compliqué) -->
+          <div>
+            <!-- à la place de cette div -->
+            <p
+              style="
+                color: #c6538c;
+                border: 1px solid rgba(31, 126, 126, 0.774);
+                text-align: center;
+              "
+            >Ceci est un paragraphe.</p>
+          </div>
+          <code-sample
+            lang="CSS"
+            content="
+          div {
+            display: block;
+          }
+          div h1 {
+            font-size: 30px;
+          }"
+          ></code-sample>
+          <p>Code exec</p>
+          
+          </div>
         </div>
       </section>
     </main>

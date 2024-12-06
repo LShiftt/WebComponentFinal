@@ -1,7 +1,22 @@
 /* Un test à la fois STPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP */
-div{
-    display: block;
+div {
+  display: block;
 }
-h1{
-    font-size: larger;
+div h1 {
+  font-size: 30px;
 }
+div h2 {
+  font-size: 27px;
+}
+div h3 {
+  font-size: 24px;
+}
+div h4 {
+  font-size: 21px;
+}
+div div {
+  display: flex;
+  color: rgba(31, 126, 126, 0.774);
+}
+
+

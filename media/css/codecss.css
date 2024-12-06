@@ -2,6 +2,7 @@
     color: #0070f3;
     /* Couleur pour les sélecteurs */
     font-size: 0.95rem;
+    /* TODO: ajouter un span à chaque selecteur */
 
     .property {
         color: #d73a49;
