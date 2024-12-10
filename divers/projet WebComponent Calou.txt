@@ -1,8 +1,8 @@
 choisir une nouveauté css et réaliser une app qui l'explique avec des web components
-stocké dans index DB (sauvegarde locale de l'état)
-plusieurs composants
-Avec ou sans Shadow DOM
-sur netlify
+stocké dans index DB (sauvegarde locale de l'état) // pas besoin j'ai le véto
+plusieurs composants // fait interact et sample
+Avec ou sans Shadow DOM // fait avecet sans
+sur netlify // fait 
 il doit il y avoir un message si le navigateur supporte en js ou pas
 mobile first (et only) responsiv de mobile à un autre
 README.md à faire, il faut qui soit classe
