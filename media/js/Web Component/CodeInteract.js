@@ -11,6 +11,11 @@ class CodeInteract extends HTMLElement {
     this.shadowRoot.innerHTML =
       /* HTML */
       `<style>
+          *::selection {
+            background: var(--color-selected);
+            color: var(--color-main);
+            box-decoration-break: clone;
+          }
           .code {
             font-family: var(--code-font);
             background-color: #f4f4f4;
