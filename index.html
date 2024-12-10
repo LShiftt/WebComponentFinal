@@ -12,7 +12,7 @@
 
   <body>
     <script src="./media/js/Web Component/CodeSample.js"></script>
-    <script src="./media/js/Web Component/CodeExec.js"></script>
+    <script src="./media/js/Web Component/CodeInteract.js"></script>
     <main>
       <h1>CSS Nest</h1>
       <nav>
@@ -111,35 +111,43 @@
           
             p {
                 color : $base-color;
-                border: 3px solid $second-dark;
+                border: 3px solid $second-color;
                 text-align: center;
+                text-indent: 0px;
           }
           "
           ></code-sample>
-          <!-- ici le nouveau component qui utilise code-sample et l'éxécute en SCSS (attention super compliqué) -->
-          <div>
-            <!-- à la place de cette div -->
+          <br />
+          <div class="code">
             <p
               style="
                 color: #c6538c;
                 border: 1px solid rgba(31, 126, 126, 0.774);
                 text-align: center;
+                text-indent: 0px;
               "
-            >Ceci est un paragraphe.</p>
+            >
+              Ceci est un paragraphe.
+            </p>
           </div>
-          <code-sample
-            lang="CSS"
-            content="
-          div {
-            display: block;
+          <br />
+          <code-interact
+            html="<div class='sample'><p>Hello World</p></div>"
+            css="div.sample{
+              text-align: center;
+              border: 1px solid ;
           }
-          div h1 {
-            font-size: 30px;
+          div p{
+              color: red;
           }"
-          ></code-sample>
-          <p>Code exec</p>
-          
-          </div>
+            nest="div.sample {
+              text-align: center;
+              border: 1px solid ;
+              p {
+                color: green;
+              }
+            }"
+          ></code-interact>
         </div>
       </section>
     </main>
