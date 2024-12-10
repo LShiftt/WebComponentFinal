@@ -26,5 +26,4 @@ revert – reverts a previous commit
 
 Idée : un boutton qui utilise un code css normale vers un code css nest et vice versa
      : un web component en ShadowDOM qui fait du CSS vers production (BCP TROP DURE, A PAS FAIRE en automatique)
-TODO: faire l'Idée n°2 en manuel
-:faire l'idée n°1
+TODO:
