@@ -1,5 +1,5 @@
 class CodeSample extends HTMLElement {
-  static observedAttributes = ["language", "content"];
+  static observedAttributes = ["lang", "content"];
 
   connectedCallback() {
     this.language = this.getAttribute("lang");
@@ -20,6 +20,17 @@ class CodeSample extends HTMLElement {
   }
   renderLanguage() {
     this.$title.innerHTML = this.language;
+    console.log(this.language);
+    console.log(this.content);
+
+    if (this.language === null) {
+      return console.log("language is null");      
+    }
+    
+    if (this.content === null) {
+      return console.log("content is null");      
+    }
+
     switch (this.language) {
       case "CSS":
         this.$code.setAttribute("class", "css-code");
@@ -30,6 +41,17 @@ class CodeSample extends HTMLElement {
           .replace(/([a-z-]+)(\s*:\s*)/gi, '<span class="property">$1</span>$2') // Propriétés
           .replace(/(:\s*)([^;]+)(;?)/g, '$1<span class="value">$2</span>$3'); // Valeurs
         this.$code.innerHTML = highlightedCode;
+        break;
+        
+        case "CSS NEST":
+        this.$code.setAttribute("class", "css-code");
+        this.renderContent();
+        const cssNestContent = this.$code.textContent;
+
+        const highlightedCodeNest = cssNestContent
+          .replace(/([a-z-]+)(\s*:\s*)/gi, '<span class="property">$1</span>$2') // Propriétés
+          .replace(/(:\s*)([^;]+)(;?)/g, '$1<span class="value">$2</span>$3'); // Valeurs
+        this.$code.innerHTML = highlightedCodeNest;
         break;
 
       case "JS":
@@ -81,7 +103,17 @@ class CodeSample extends HTMLElement {
 
   attributeChangedCallback(attribut, oldValue, newValue) {
     if (attribut === "lang") {
+      console.log("received lang="+ this.language);
       this.language = newValue;
+      
+      
+
+      this.renderLanguage();
+    }
+
+    if (attribut === "content") {
+      this.content = newValue;
+      console.log("received content="+ this.content);
 
       this.renderLanguage();
     }
