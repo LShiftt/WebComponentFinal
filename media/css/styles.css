@@ -1,19 +1,16 @@
-/* CSS nesting */
 * {
   /* Variables */
-  /* All */
+  /* Main */
   /* Black */
   --color-main: oklch(0 0 0);
   /* Light Gray */
   --color-seco: oklch(0.7062 0.0271 252.53);
-  /* Secondary Color */
+  /* Select Color */
   --color-selected: var(--color-seco);
   /* Font Segoe */
   --font-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   /* Code  */
-  /* BackGround orange */
-  --code-color-bg: oklch(0.7558 0.1153 41.66);
   /* Font Courrier */
   --code-font: "Courier New", Courier, monospace;
 
@@ -70,10 +67,82 @@ main {
     text-decoration: none;
     padding: 2vw;
   }
+
+  #isSupported {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      text-indent: 0px;
+    }
+
+    img {
+      width: 300px;
+    }
+  }
+}
+
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: -250px;
+  background-color: #e8e8e8;
+  padding-top: 60px;
+  transition: right 0.5s ease;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.sidenav a:hover {
+  color: #111;
+}
+
+.sidenav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidenav.active {
+  right: 0;
+}
+
+.sidenav .close {
+  position: sticky;
+  top: 0;
+  left: 25px;
+  font-size: 36px;
+}
+
+.burger-icon {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+
+}
+
+.burger-icon span {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
 }
 
 .code {
-  font-family: var(--code-font);
   background-color: #f4f4f4;
   border: 1px solid #ddd;
   padding: 10px;
@@ -91,5 +160,9 @@ main {
     background-color: #f9f9f9;
     padding: 10px;
     border-radius: 5px;
+  }
+
+  code {
+    font-family: var(--code-font);
   }
 }

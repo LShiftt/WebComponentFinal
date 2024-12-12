@@ -1,51 +1,69 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Nest</title>
-    <link rel="stylesheet" href="./media/css/styles.css" />
-    <link rel="stylesheet" href="./media/css/codecss.css" />
-    <link rel="stylesheet" href="./media/css/codejs.css" />
-    <link rel="stylesheet" href="./media/css/codescss.css" />
-  </head>
 
-  <body>
-    <script src="./media/js/Web Component/CodeSample.js"></script>
-    <script src="./media/js/Web Component/CodeInteract.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/baseline-status@1/baseline-status.min.js" type="module"></script>
-    <main>
-      <h1>CSS Nest</h1>
-      <nav>
-        <a href="#partie1"> Partie 1</a>
-      </nav>
-      <p>Le CSS Nest est aujourd'hui supporté par tous les navigateurs</p>
-      <section>
-        <a href="#partie1"><h2 id="partie1">Késako ? 📌</h2></a>
-        <div>
-          <h3>Qui c'est qui a copié ?</h3>
-          <p>
-            Pour bien comprendre le CSS Nest, il est nécéssaire de retourner à
-            la fondation du CSS 3 .
-          </p>
-          <code-sample
-            lang="CSS"
-            content="
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Nest</title>
+  <link rel="stylesheet" href="./media/css/styles.css" />
+  <link rel="stylesheet" href="./media/css/codecss.css" />
+  <link rel="stylesheet" href="./media/css/codejs.css" />
+  <link rel="stylesheet" href="./media/css/codescss.css" />
+</head>
+
+<body>
+  <script src="./media/js/Web Component/CodeSample.js"></script>
+  <script src="./media/js/Web Component/CodeInteract.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/baseline-status@1/baseline-status.min.js" type="module"></script>
+  <main>
+    <h1>CSS Nesting</h1>
+
+    <div id="mySidenav" class="sidenav">
+      <a id="closeBtn" class="close">X</a>
+      <ul>
+        <li><a href="#partieCSS">Le CSS</a></li>
+        <li><a href="#partieSCSS">Le SCSS</a></li>
+        <li><a href="#partieCSSNest">Le CSS Nesting</a></li>
+        <li><a href="#partieExemple">Les Exemples</a></li>
+      </ul>
+    </div>
+
+    <a id="openBtn" tabindex="0">
+      <span class="burger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </a>
+
+
+
+    <div id="isSupported">
+      <p tabindex="0">Le CSS Nesting est aujourd'hui supporté par tous les navigateurs ✅</p>
+      <img src="./media/img/isSupported.png"
+        alt="Une grille qui présente si un certain navigateur supporte ou non CSS Nesting">
+    </div>
+
+    <section>
+      <a href="#partieCSS">
+        <h3 id="partieCSS">Le CSS 📌</h3>
+      </a>
+      <p>
+        Pour bien comprendre le CSS Nest, il est nécéssaire de retourner à la fondation du CSS 3 .
+      </p>
+      <code-sample lang="CSS" content="
             div{
                 display: block;
             }
             div h1{
                 font-size: 30px;
-            }"
-          ></code-sample>
-          <p>
-            Par exemple le code ci-dessus permet de générer un titre de 30px
-            s'il est dans une div, c'est sympa mais que se passerai-t-il si on
-            avait 5 éléments différents dans cette même div :
-          </p>
-          <code-sample
-            lang="CSS"
-            content="
+            }"></code-sample>
+      <p>
+        Par exemple le code ci-dessus permet de générer un titre de 30px
+        s'il est dans une div, c'est sympa mais que se passerai-t-il si on
+        avait 5 éléments différents dans cette même div :
+      </p>
+      <code-sample lang="CSS" content="
           div {
             display: block;
           }
@@ -63,18 +81,18 @@
           }
           div div {
             display: flex;
-          }"
-          ></code-sample>
-          <p>
-            La répétition de div est redondante, c'est pourquoi SCSS à été
-            créer, il s'agit d'une des deux syntaxes du preprocessor SASS
-            (Syntactically Awesome Style Sheets). Ce "language" à la
-            particularitée de simulé un "nest" ("nid" en anglais ) pour chacun
-            des éléments que l'on souhaite styliser.
-          </p>
-          <code-sample
-            lang="SCSS"
-            content="
+          }"></code-sample>
+      <a href="#partieSCSS">
+        <h3 id="partieSCSS">Le SCSS 📌</h3>
+      </a>
+      <p>
+        La répétition de div est redondante, c'est pourquoi SCSS à été
+        créer, il s'agit d'une des deux syntaxes du preprocessor SASS
+        (Syntactically Awesome Style Sheets). Ce "language" à la
+        particularitée de simulé un "nest" ("nid" en anglais ) pour chacun
+        des éléments que l'on souhaite styliser.
+      </p>
+      <code-sample lang="SCSS" content="
           div {
               display: block;
               h1 {
@@ -93,21 +111,18 @@
                   display: flex;
               }
           }
-          "
-          ></code-sample>
-          <p>
-            Similaire certes, mais bien plus simple : Parce que la div engloble
-            les différents éléments, ceux-ci ne seront affecté par ce code css
-            que si la même condition s'applique
-          </p>
-          <p>
-            Il y a encore mieu, le SCSS possède des variables (qui ne peuvent
-            pas être modifié dynamiquement) permettant de conserver une même
-            couleur sans avoir à retenir son code héxadécimal ou rgba :
-          </p>
-          <code-sample
-            lang="SCSS"
-            content="
+          "></code-sample>
+      <p>
+        Similaire certes, mais bien plus simple : parce que la div engloble
+        les différents éléments, ceux-ci ne seront affecté par ce code css
+        que s'ils sont présent dans la div. Le résultat est donc le même qu'au dessus.
+      </p>
+      <p>
+        Il y a encore mieu, le SCSS possède des variables (qui ne peuvent
+        pas être modifié dynamiquement) permettant de conserver une même
+        couleur sans avoir à retenir son code héxadécimal ou rgba :
+      </p>
+      <code-sample lang="SCSS" content="
             $base-color: #c6538c;
             $second-color: rgba(31, 126, 126, 0.774);
           
@@ -117,41 +132,117 @@
                 text-align: center;
                 text-indent: 0px;
           }
-          "
-          ></code-sample>
-          <br />
-          <div class="code">
-            <p
-              style="
+          "></code-sample>
+      <br />
+      <div class="code">
+        <p style="
                 color: #c6538c;
                 border: 1px solid rgba(31, 126, 126, 0.774);
                 text-align: center;
                 text-indent: 0px;
-              "
-            >
-              Ceci est un paragraphe.
-            </p>
-          </div>
-          <br />
-          <code-interact
-            html="<div class='sample'><p>Hello World</p></div>"
-            css="div.sample{
+              ">
+          Ceci est un paragraphe.
+        </p>
+      </div>
+      <br />
+      <a href="#partieCSSNest">
+        <h3 id="partieCSSNest">Le CSS Nesting 📌</h3>
+      </a>
+      <p>
+        C'est le 14 février 2023 que le CSS Nesting fit son apparition, il s'agit d'un module incorporé au CSS native
+        qui permet de réaliser la même chose que le SCSS sans à avoir à utilisé un pre-processeur.
+      </p>
+      <code-interact html="<div class='sample'><p>Ce texte change de couleur.</p></div>" css="div.sample{
               text-align: center;
               border: 1px solid ;
           }
           div p{
               color: red;
-          }"
-            nest="div.sample {
+          }" nest="div.sample {
               text-align: center;
               border: 1px solid ;
               p {
                 color: green;
               }
-            }"
-          ></code-interact>
-        </div>
-      </section>
-    </main>
-  </body>
+            }"></code-interact>
+    </section>
+    <section>
+      <a href="#partieExemple">
+        <h3 id="partieExemple">Les Exemples 📌</h3>
+      </a>
+      <p>L'une des spécificitées du CSS Nesting est son selecteur "&", il permet de créer une relation entre le parent
+        et les règles enfants (il agit identiquement à ":is()").</p>
+      <code-interact
+        html="<p class='example'>Ce paragraphe <a>contient un lien</a>, essaye de le survoler ou de le focus (appuie sur 'tab').</p>"
+        css=".example {
+        font-size: 1.2rem;
+        }
+
+        .example > a {
+        color: blue;
+        }
+
+        .example > a:hover,
+        .example > a:focus {
+        color: blue;
+        background-color: tomato;
+        }
+        " nest=".example {
+        font-size: 1.2rem;
+          & > a {
+            color: tomato;
+              &:hover,
+                &:focus {
+                  color: tomato;
+                  background-color: blue;
+               }
+            }
+        }
+
+        
+        ">
+      </code-interact>
+      <p>Les média query fonctionne aussi avec Css Nest :</p>*
+      <code-interact html="<p>Ce texte change de couleur.</p>" css="
+        p {
+          font-size: 1.2rem;
+        }
+        @media (orientation: landscape) {
+          p {
+            color : red;
+  }
+}
+        " nest="
+        p {
+          font-size: 1.2rem;
+        }
+        @media (orientation: landscape) {
+          p {
+            color : blue;
+  }
+}
+">
+      </code-interact>
+    </section>
+
+  </main>
+
+  <script>
+    var sidenav = document.getElementById("mySidenav");
+    var openBtn = document.getElementById("openBtn");
+    var closeBtn = document.getElementById("closeBtn");
+
+    openBtn.onclick = openNav;
+    closeBtn.onclick = closeNav;
+
+    function openNav() {
+      sidenav.classList.add("active");
+    }
+
+    function closeNav() {
+      sidenav.classList.remove("active");
+    }
+  </script>
+</body>
+
 </html>

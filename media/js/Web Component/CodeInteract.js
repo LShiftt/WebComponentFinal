@@ -5,8 +5,11 @@ class CodeInteract extends HTMLElement {
     this.attachShadow({ mode: "open" });
 
     this.html = this.getAttribute("html");
+    console.log(this.html);
     this.css = this.getAttribute("css");
+    console.log(this.css);
     this.nest = this.getAttribute("nest");
+    console.log(this.nest);
 
     this.shadowRoot.innerHTML =
       /* HTML */
@@ -37,7 +40,19 @@ class CodeInteract extends HTMLElement {
               padding: 10px;
               border-radius: 5px;
             }
+              
           }
+            #button_container{
+            text-align :center;
+            padding: 2vw;
+              button{
+                width: 150;
+                height: 50px;
+                border-radius: 6px;
+                border: 4px ridge ;
+         
+}
+            }
 
           .css-code {
             color: #0070f3;
@@ -76,7 +91,9 @@ class CodeInteract extends HTMLElement {
           <code-sample id="code-sample2"></code-sample>
         </div>
         <div id="div" class="code"></div>
-        <button id="button">CSS <-> CSS Nest</button> `;
+        <div id="button_container"><button id="button">CSS <-> CSS Nest</button></div>
+
+         `;
 
     this.$div = this.shadowRoot.querySelector("div#div");
     this.$div.innerHTML = this.html;
@@ -122,6 +139,6 @@ class CodeInteract extends HTMLElement {
     }
   }
 
-  disconnectedCallback() {}
+  disconnectedCallback() { }
 }
 customElements.define("code-interact", CodeInteract);

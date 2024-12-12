@@ -1,14 +1,13 @@
 /* Un test à la fois STPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP */
 
-.container {
-  display: flex;
-  flex-flow: column wrap;
-  overflow: auto;
+* {
+  --color-main: oklch(0 0 0);
+  --color-seco: oklch(0.7062 0.0271 252.53);
+
+  p {
+    color: --color-main;
+    border: 3px solid --color-seco;
+    text-align: center;
+    text-indent: 0px;
+  }
 }
-#code-sample1 {
-  grid-area: 1 / 1 / 2 / 2;
-}
-#code-sample2 {
-  grid-area: 1 / 2 / 2 / 3;
-}
-  
