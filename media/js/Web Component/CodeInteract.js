@@ -111,6 +111,7 @@ class CodeInteract extends HTMLElement {
     this.$codeSample2 = this.shadowRoot.querySelector(
       "code-sample#code-sample2"
     );
+    
     this.$codeSample2.setAttribute("lang", "CSS NEST");
     this.$codeSample2.setAttribute("content", this.nest);
 
