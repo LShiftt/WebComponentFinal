@@ -24,15 +24,11 @@ class CodeSample extends HTMLElement {
    */
   renderLanguage() {
     this.$title.innerHTML = this.language;
-    console.log(this.language);
-    console.log(this.content);
 
     if (this.language === null) {
-      return console.log("language is null");
     }
 
     if (this.content === null) {
-      return console.log("content is null");
     }
 
     switch (this.language) {

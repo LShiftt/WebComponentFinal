@@ -5,11 +5,8 @@ class CodeInteract extends HTMLElement {
     this.attachShadow({ mode: "open" });
 
     this.html = this.getAttribute("html");
-    console.log(this.html);
     this.css = this.getAttribute("css");
-    console.log(this.css);
     this.nest = this.getAttribute("nest");
-    console.log(this.nest);
 
     this.shadowRoot.innerHTML =
       /* HTML */
@@ -104,7 +101,6 @@ class CodeInteract extends HTMLElement {
     this.$codeSample1 = this.shadowRoot.querySelector(
       "code-sample#code-sample1"
     );
-    console.log("give css");
     this.$codeSample1.setAttribute("lang", "CSS");
     this.$codeSample1.setAttribute("content", this.css);
 
@@ -126,17 +122,14 @@ class CodeInteract extends HTMLElement {
   useOther() {
     switch (this.nextLang) {
       case "css":
-        console.log("css");
         this.$style.innerText = this.css;
         this.nextLang = "nest";
         break;
       case "nest":
-        console.log("nest");
         this.$style.innerText = this.nest;
         this.nextLang = "css";
         break;
       default:
-        console.log(`default`);
         this.nextLang = "nest";
         this.useOther();
         break;
