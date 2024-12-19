@@ -18,17 +18,21 @@ class CodeSample extends HTMLElement {
 
     this.renderLanguage();
   }
+
+  /**
+   * Affiche un code formaté et en couleurs à partir du langage renseignées 
+   */
   renderLanguage() {
     this.$title.innerHTML = this.language;
     console.log(this.language);
     console.log(this.content);
 
     if (this.language === null) {
-      return console.log("language is null");      
+      return console.log("language is null");
     }
-    
+
     if (this.content === null) {
-      return console.log("content is null");      
+      return console.log("content is null");
     }
 
     switch (this.language) {
@@ -42,8 +46,8 @@ class CodeSample extends HTMLElement {
           .replace(/(:\s*)([^;]+)(;?)/g, '$1<span class="value">$2</span>$3'); // Valeurs
         this.$code.innerHTML = highlightedCode;
         break;
-        
-        case "CSS NEST":
+
+      case "CSS NEST":
         this.$code.setAttribute("class", "css-code");
         this.renderContent();
         const cssNestContent = this.$code.textContent;
@@ -58,17 +62,17 @@ class CodeSample extends HTMLElement {
         this.$code.setAttribute("class", "js-code");
         this.renderContent();
         const jsContent = this.$code.textContent;
-        
+
         const highlightedJs = jsContent
           .replace(
             /\b(function|return|console|log)\b/g,
             '<span class="keyword">$1</span>'
-          ) // Mots-clés
-          .replace(/`([^`]+)`/g, '<span class="string">`$1`</span>') // Chaînes de caractères
+          )
+          .replace(/`([^`]+)`/g, '<span class="string">`$1`</span>')
           .replace(
             /\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()/g,
             '<span class="function">$1</span>'
-          ); // Noms de fonctions
+          );
 
         this.$code.innerHTML = highlightedJs;
         break;
@@ -78,20 +82,20 @@ class CodeSample extends HTMLElement {
         this.renderContent();
         const scssContent = this.$code.textContent;
         const highlightedScss = scssContent
-          .replace(/\$[a-zA-Z0-9-_]+/g, '<span class="variable">$&</span>') // Variables
+          .replace(/\$[a-zA-Z0-9-_]+/g, '<span class="variable">$&</span>')
           .replace(
             /@mixin\s+([a-zA-Z0-9-_]+)/g,
             '@mixin <span class="mixin">$1</span>'
-          ) // Mixins
+          )
           .replace(
             /@include\s+([a-zA-Z0-9-_]+)/g,
             '@include <span class="include">$1</span>'
-          ) // Appels de mixins
+          )
           .replace(
             /([a-zA-Z-]+)(\s*:\s*)/g,
             '<span class="property">$1</span>$2'
-          ) // Propriétés CSS
-          .replace(/(:\s*)([^;]+)(;?)/g, '$1<span class="value">$2</span>$3'); // Valeurs CSS
+          )
+          .replace(/(:\s*)([^;]+)(;?)/g, '$1<span class="value">$2</span>$3');
 
         this.$code.innerHTML = highlightedScss;
         break;
@@ -103,23 +107,17 @@ class CodeSample extends HTMLElement {
 
   attributeChangedCallback(attribut, oldValue, newValue) {
     if (attribut === "lang") {
-      console.log("received lang="+ this.language);
       this.language = newValue;
-      
-      
-
       this.renderLanguage();
     }
 
     if (attribut === "content") {
       this.content = newValue;
-      console.log("received content="+ this.content);
-
       this.renderLanguage();
     }
   }
 
-  disconnectedCallback() {}
+  disconnectedCallback() { }
 }
 
 customElements.define("code-sample", CodeSample);
