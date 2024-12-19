@@ -1,26 +1,26 @@
 .scss-code {
-    color: #0070f3; /* Couleur par défaut */
+    color: #0070f3;
     font-size: 0.95rem;
 }
 
 /* Style spécifique pour SCSS */
 .variable {
-    color: #d7983a; /* Couleur pour les variables */
+    color: #d7983a;
 }
 
 .mixin {
-    color: #6f42c1; /* Couleur pour les mixins */
+    color: #6f42c1;
     font-style: italic;
 }
 
 .include {
-    color: #005cc5; /* Couleur pour les appels de mixins */
+    color: #005cc5;
 }
 
 .property {
-    color: #d73a49; /* Couleur pour les propriétés CSS */
+    color: #d73a49;
 }
 
 .value {
-    color: #22863a; /* Couleur pour les valeurs CSS */
+    color: #22863a;
 }
